@@ -7,6 +7,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
   mode: 'development',
   entry: {
+    // To bundle them together make an array like:
+    // main: ['./src/index.js', './src/print.js'],
     index: './src/index.js',
     print: './src/print.js',
   },
