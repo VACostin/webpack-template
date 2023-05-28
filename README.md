@@ -1,3 +1,5 @@
+If you want to start from 0 (not cloning this repo)
+
 0. set your project structure to look like this
 1. npm init -yes
 2. npm install webpack webpack-cli --save-dev
@@ -9,3 +11,5 @@
     6.2 CSV, TSV, XML: csv-loader xml-loader
     6.3 toml, yaml, json5: toml yamljs json5
 7. npm run build ("npx webpack" embedded in package.json)
+
+If you're cloning this repo just npm install & npm run build.
