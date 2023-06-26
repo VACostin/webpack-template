@@ -4,10 +4,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 module.exports = {
   mode: "development",
   entry: {
-    // To bundle them together make an array like:
-    // main: ['./src/index.js', './src/print.js'],
     index: "./src/index.js",
-    print: "./src/print.js",
   },
   devtool: "inline-source-map",
   devServer: {
@@ -15,7 +12,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: "Development",
+      title: "Your title goes here",
       template: "index.html",
     }),
   ],
@@ -35,14 +32,9 @@ module.exports = {
         type: "asset/resource",
       },
       {
-        test: /\.(?:js|mjs|cjs)$/,
+        test: /\.(?:js|jsx|mjs|cjs)$/,
         exclude: /node_modules/,
-        use: {
-          loader: "babel-loader",
-          options: {
-            presets: [["@babel/preset-env", { targets: "defaults" }]],
-          },
-        },
+        use: "babel-loader",
       },
     ],
   },
