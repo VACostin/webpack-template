@@ -4,41 +4,46 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 module.exports = {
   mode: "development",
   entry: {
-    index: "./src/index.js",
+    index: "./src/index.jsx"
   },
   devtool: "inline-source-map",
   devServer: {
-    static: "./dist",
+    static: "./dist"
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: "Your title goes here",
-      template: "index.html",
-    }),
+      template: "index.html"
+    })
   ],
   output: {
     filename: "[name].bundle.js",
     path: path.resolve(__dirname, "dist"),
-    clean: true,
+    clean: true
   },
   module: {
     rules: [
       {
         test: /\.css$/i,
-        use: ["style-loader", "css-loader"],
+        use: ["style-loader", "css-loader"]
       },
       {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
-        type: "asset/resource",
+        type: "asset/resource"
       },
       {
         test: /\.(?:js|jsx|mjs|cjs)$/,
         exclude: /node_modules/,
         use: "babel-loader",
         resolve: {
-          extensions: [".js", ".jsx"],
-        },
-      },
-    ],
+          extensions: [".js", ".jsx"]
+        }
+      }
+    ]
   },
+  resolve: {
+    alias: {
+      Alias1: path.resolve(__dirname, "src/whatever1"),
+      Alias2: path.resolve(__dirname, "src/whatever2")
+    }
+  }
 };
